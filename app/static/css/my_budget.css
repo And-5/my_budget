@@ -1,0 +1,200 @@
+* {
+  outline: 0;
+  padding: 0;
+  margin: 0;
+  border: 0;
+}
+
+.container {
+    width: 1180px;
+    margin: 0 auto;
+}
+
+.login_background_color {
+    background-color: #206517;
+    height: 50px;
+}
+
+.login_form {
+    text-align: right;
+    line-height: 50px;
+    padding-right: 10px;
+}
+
+.input [type=text] {
+    padding: 2px 5px;
+    width: 150px;
+    font-size: 15px;
+}
+
+.input [type=password] {
+    padding: 2px 5px;
+    width: 150px;
+    font-size: 15px;
+    margin: 0 auto;
+}
+
+.input [type=submit] {
+    padding: 2px 5px;
+    font-size: 15px;
+    border-radius: 3px;
+}
+
+.btn_reg {
+    color: black;
+    text-decoration: none;
+    font-size: medium;
+    background: rgb(239, 239, 239);
+    padding: 2px 5px;
+    border-radius: 3px;
+    font-size: 15px;
+    line-height: 15px;
+    font-family: Tahoma;
+
+}
+
+.body {
+    height:100vh;
+    margin: 0 auto;
+}
+
+.form_1 {
+    display: flex;
+    justify-content: center;
+    padding: 10px 20px 20px 20px;
+}
+
+.table {
+    display: flex;
+    justify-content: center;
+    font-family: Arial;
+    font-size: smaller;
+}
+
+.table_1 {
+    margin: 0 auto;
+}
+
+p {
+    width: 200px;
+    border: 1px solid red;
+    padding: 5px;
+    text-align: center;
+}
+
+.name_1 {
+    margin: 0 0 0 20px;
+}
+
+
+
+table {
+  border: 1px solid #ccc;
+  border-collapse: collapse;
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  table-layout: fixed;
+}
+
+table caption {
+  font-size: 1.5em;
+  margin: .5em 0 .75em;
+}
+
+table tr {
+  background-color: #f8f8f8;
+  border: 1px solid #ddd;
+  padding: .35em;
+}
+
+table th,
+table td {
+  padding: .625em;
+  text-align: center;
+}
+
+table th {
+  font-size: .85em;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+}
+
+@media screen and (max-width: 600px) {
+  table {
+    border: 0;
+  }
+
+  table caption {
+    font-size: 1.3em;
+  }
+
+  table thead {
+    border: none;
+    clip: rect(0 0 0 0);
+    height: 1px;
+    margin: -1px;
+    overflow: hidden;
+    padding: 0;
+    position: absolute;
+    width: 1px;
+  }
+
+  table tr {
+    border-bottom: 3px solid #ddd;
+    display: block;
+    margin-bottom: .625em;
+  }
+
+  table td {
+    border-bottom: 1px solid #ddd;
+    display: block;
+    font-size: .8em;
+    text-align: right;
+  }
+
+  table td::before {
+    /*
+    * aria-label has no advantage, it won't be read inside a table
+    content: attr(aria-label);
+    */
+    content: attr(data-label);
+    float: left;
+    font-weight: bold;
+    text-transform: uppercase;
+  }
+
+  table td:last-child {
+    border-bottom: 0;
+  }
+}
+
+.del-btn{
+    display: block;
+    width: 100px;
+    background-color: #061ef8;
+    height: 30px;
+    border-radius: 10px;
+    text-decoration: none;
+    color: #fff;
+    font-size: 14px;
+    line-height: 30px;
+    transition: 0.3s;
+    margin: 0 auto;
+}
+.del-btn:hover{
+    transition: 0.3s;
+    border-radius: 15px;
+    font-size: 16px;
+    background-color: #f10202;
+}
+
+.svg {
+    display: block;
+    height: 5px;
+
+}
+
+a svg:hover path {
+   fill: #ff0000;
+}

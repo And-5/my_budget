@@ -1,0 +1,95 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <script src="/static/js/jquery-3.3.1.min.js"></script>
+    <script src="/static/js/my_budget.js"></script>
+    <script src="static/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="static/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/static/css/my_budget.css">
+    <title>{% block header %}{% endblock %}</title>
+</head>
+<body>
+    <header class="login_background_color">
+        <div class="container login_form">
+            {% if not request.user.is_authenticated %}
+            <form method="post" action="login">
+            <div class="input">
+                <input type="text" placeholder="Enter username" name="username" id="nam5">
+                <input type="password" placeholder="Enter Password" name="password" id="pas5">
+                <input type="submit" value="Войти" id="inter5">
+                <a class="btn_reg data-action="open-form" href="registration" role="button">Регистрация</a>
+            </div>
+            {% else %}
+            <div class=" ">
+                {{ request.user.username }}
+                <a class=" " href="logout" role="button">Выйти</a>
+            </div>
+            {% endif %}
+            </form>
+        </div>
+    </header>
+<section class="body container">
+
+<form method="post" action="index">
+    <div class="form_1">
+        {{ form.name }}
+        {{ form.price }}
+        {{ form.date }}
+        {{ form.category }}
+        <span>{{ error }}</span>
+        <input type="submit" value="Submit">
+    </div>
+    </form>
+
+    {% block content %} {% endblock %}
+
+{% if request.user.is_authenticated %}
+    Итого: {{ price_sum_s }} бел.руб
+    {% if money %}
+
+        <table>
+{#            <caption>Расходы</caption>#}
+                <thead>
+                    <tr>
+                        <th scope="col">Наименование</th>
+                        <th scope="col">Цена</th>
+                        <th scope="col">Дата</th>
+                        <th scope="col"></th>
+                    </tr>
+                </thead>
+        </table>
+        {% for el in money %}
+            <table>
+              <tbody>
+                <tr>
+                  <td data-label="Account">{{ el.name }}</td>
+                  <td data-label="Due Date">{{ el.price }}</td>
+                  <td data-label="Amount">{{ el.date }}</td>
+                  <td data-label="Amount"><a class="" href="delete/{{ el.id }}"><svg xmlns="http://www.w3.org/2000/svg" width="20px" height="20px" fill="currentColor" class="bi bi-trash" viewBox="0 0 16 16">
+  <path d="M5.5 5.5A.5.5 0 0 1 6 6v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5zm2.5 0a.5.5 0 0 1 .5.5v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5zm3 .5a.5.5 0 0 0-1 0v6a.5.5 0 0 0 1 0V6z"/>
+  <path fill-rule="evenodd" d="M14.5 3a1 1 0 0 1-1 1H13v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V4h-.5a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1H6a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1h3.5a1 1 0 0 1 1 1v1zM4.118 4 4 4.059V13a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1V4.059L11.882 4H4.118zM2.5 3V2h11v1h-11z"/>
+</svg></a></td>
+                </tr>
+              </tbody>
+            </table>
+        {% endfor %}
+    {% else %}
+        <p class="table_1">Пусто</p>
+    {% endif %}
+{% endif %}
+</section>
+</body>
+</html>
+
+
+
+
+
+{#<div class="table">#}
+{#            <p>{{ el.name }}</p>#}
+{#            <p>{{ el.price }}</p>#}
+{#            <p>{{ el.date }}</p>#}
+{#            <a href="delete/{{ el.id }}">Удалить</a>#}
+{#            </div>#}
